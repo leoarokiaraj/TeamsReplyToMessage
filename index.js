@@ -34,10 +34,16 @@ const mctionMessageExtensionReply = new ActionMessageExtensionReply();
 
 // Create HTTP server.
 const server = express();
-const port = process.env.port || process.env.PORT || 3978;
+const port =  process.env.PORT || 3978;
+
+server.use(express.static(__dirname+ '/Static'))
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
+
+server.set('port', port);
 
 server.listen(port, function () {
-  console.log(`\Bot/ME service listening at http://localhost:${port}` )
+  //console.log(`Bot/ME service listening at http://localhost:${port}` )
 
   //code handle dev mode, exposes app in ngrok
   if (process.env.DEVMODE == 'true')
@@ -46,7 +52,7 @@ server.listen(port, function () {
       console.log(`Node.js local server is publicly-accessible at ${url}`);
     });
   }
-  console.log('%s listening to ', server.name );
+  //console.log('%s listening to ', server.name );
 });
 
 // This is to test
@@ -54,6 +60,10 @@ server.get("/Ping", (req, res) => {
   res.send(`Ping Success`);
 });
 
+//Launch check
+server.get("/", (req, res) => {
+  res.send(`Running`);
+});
 
 // Listen for incoming requests.
 server.post("/api/messages", (req, res) => {
@@ -63,4 +73,4 @@ server.post("/api/messages", (req, res) => {
   });
 });
 
-server.use(express.static(__dirname+ '/Static'))
+
