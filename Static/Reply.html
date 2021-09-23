@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Microsoft Teams ME Action WebView</title>
+    <script src="https://statics.teams.microsoft.com/sdk/v1.7.0/js/MicrosoftTeams.min.js"></script>
+    <script>
+    microsoftTeams.initialize();
+        function validateForm() {
+            let empInfo = { }
+            microsoftTeams.tasks.submitTask(empInfo);
+            return true;
+        }
+
+        window.onload = function () {
+            microsoftTeams.initialize();
+            let emptyData = { }
+            microsoftTeams.tasks.submitTask(emptyData);
+        }
+
+
+    </script>
+    <style>
+            .login {
+                text-align: center;
+            }
+    </style>
+
+</head>
+<body></body>
+</html>
