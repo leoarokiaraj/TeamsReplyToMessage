@@ -11,6 +11,13 @@
   },
   "author": "Leo",
   "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "env-cmd": "^10.1.0",
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.11"
+  },
   "devDependencies": {
     "botbuilder": "^4.14.1",
     "env-cmd": "^10.1.0",
